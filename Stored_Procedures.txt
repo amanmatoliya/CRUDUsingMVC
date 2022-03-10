@@ -1,0 +1,66 @@
+CREATE TABLE Employees (
+    Id int IDENTITY(1, 1) PRIMARY KEY,
+    Name varchar(50),
+    Address varchar(50),
+    City varchar(50)
+);
+
+select * from Employees
+drop table Employees
+......................................................................................
+......................................................................................
+
+Create procedure [dbo].[AddNewEmpDetails]  
+(  
+   @Name varchar (50),  
+   @City varchar (50),  
+   @Address varchar (50)  
+)  
+as  
+begin  
+   Insert into Employees values(@Name,@City,@Address)  
+End
+
+......................................................................................
+
+
+Create Procedure [dbo].[GetEmployees]  
+as  
+begin  
+   select *from Employees  
+End 
+
+......................................................................................
+......................................................................................
+
+Create procedure [dbo].[UpdateEmpDetails]  
+(  
+   @EmpId int,  
+   @Name varchar (50),  
+   @City varchar (50),  
+   @Address varchar (50)  
+)  
+as  
+begin  
+   Update Employees   
+   set Name=@Name,  
+   City=@City,  
+   Address=@Address  
+   where Id=@EmpId  
+End 
+......................................................................................
+......................................................................................
+select * from Employees
+
+......................................................................................
+......................................................................................
+Create procedure [dbo].[DeleteEmpById]  
+(  
+   @EmpId int  
+)  
+as   
+begin  
+   Delete from Employees where Id=@EmpId  
+End 
+......................................................................................
+......................................................................................
